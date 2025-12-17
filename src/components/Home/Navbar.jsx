@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Cpu, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,10 +16,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Solutions', href: '#' },
-    { name: 'Architecture', href: '#' },
-    { name: 'Enterprise', href: '#' },
-    { name: 'Resources', href: '#' },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Service', href: '/service' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -45,13 +46,13 @@ const Navbar = () => {
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center gap-10 ">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
+              <Link
+                key={link?.name}
+                to={link?.href}
                 className="text-sm font-bold text-slate-600 hover:text-[#31b8c6] transition-colors uppercase tracking-widest"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -81,13 +82,13 @@ const Navbar = () => {
         `}>
           <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-4 flex flex-col gap-2">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link?.href}
                 className="px-4 py-3 text-lg font-bold text-slate-700 hover:bg-slate-50 hover:text-[#31b8c6] rounded-xl transition-all"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
             <div className="h-[1px] bg-slate-100 my-2"></div>
             <button className="w-full py-4 text-[#31b8c6] font-bold">Login</button>

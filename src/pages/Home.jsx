@@ -26,8 +26,7 @@ import FloatingActionButtons from "../components/Home/FloatingActionButtons.JSX"
 const Home = () => {
   return (
     <>
-      <div className="relative">
-        <Navbar />
+    
         <main className="pt-28 md:pt-32 lg:pt-0">
           <HeroSection />
           <TrustSection />
@@ -40,8 +39,7 @@ const Home = () => {
           <FinalCTA/>
          <FloatingActionButtons/>
         </main>
-        <Footer/>
-      </div>
+        
     </>
   );
 };

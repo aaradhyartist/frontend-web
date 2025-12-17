@@ -7,7 +7,7 @@ import {
 import { ROUTES } from "./constants/routes";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import NotFound from "./pages/NotFound";
+
 import MainLayout from "./layouts/MainLayout";
 import Contact from "./pages/Contact";
 import PrivateRoute from "./components/PrivateRoute";
@@ -22,6 +22,9 @@ import ApiTester from "./pages/ApiTester";
 import ContactUs from "./pages/Contact";
 import WhatsAppContact from "./pages/Whatsapp";
 import BackToTop from "./components/Home/BackToTop.JSX";
+import Navbar from "./components/Home/Navbar";
+import Footer from "./components/Home/Footer";
+import Service from "./pages/Service";
 
 function App() {
   const token = useSelector((state) => state.auth.accessToken); // read token from Redux
@@ -68,35 +71,36 @@ function App() {
   // }
 
   return (
-    <Router>
-      <Routes>
 
-        <Route path="contact" element={<ContactUs />} />
-        <Route index element={<Home />} />
-        <Route path="/" element={<MainLayout />}>
+    <>
+      <div className="relative">
+        <Navbar />
 
+        <Routes>
+
+
+          <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="whatsapp" element={<WhatsAppContact />} />
-         
-          {/* <Route path="projects" element={<Projects />} /> */}
-          {/* <Route path="projects/create" element={<CreateProject />} /> */}
-        </Route>
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </Router>
+           <Route path="service" element={<Service />} />
+
+          <Route path="contact" element={<ContactUs />} />
+
+          <Route path="/" element={<MainLayout />}>
+
+
+            <Route path="whatsapp" element={<WhatsAppContact />} />
+
+            {/* <Route path="projects" element={<Projects />} /> */}
+            {/* <Route path="projects/create" element={<CreateProject />} /> */}
+          </Route>
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </>
   );
-  // return (
-  //   <Router>
-  //     <MainLayout>
-  //       <Routes>
-  //         <Route path={ROUTES.HOME} element={<Home />} />
-  //         <Route path={ROUTES.ABOUT} element={<About />} />
-  //         <Route path={ROUTES.CONTACT} element={<Contact />} />
-  //         <Route path="*" element={<Navigate to="/" />} />
-  //       </Routes>
-  //     </MainLayout>
-  //   </Router>
-  // );
+
 }
 
 export default App;

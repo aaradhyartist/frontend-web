@@ -10,11 +10,11 @@ const TechStackRefined = () => {
     { name: "DevOps", tools: "Docker, CI/CD", icon: <Shield size={24} /> },
     { name: "Mobile", tools: "React Native", icon: <Smartphone size={24} /> }
   ];
-
+      
   return (
     <section className="w-full bg-white py-24 px-0 sm:px-6 md:px-12 lg:px-24  border-b border-slate-100">
       <div className="w-full px-6 lg:px-16">
-
+ 
         {/* --- IMPROVED HEADING --- */}
         <div className="flex flex-col lg:flex-row items-start justify-between gap-8 mb-20">
           <div className="max-w-2xl">
