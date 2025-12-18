@@ -18,7 +18,7 @@ const FloatingActionButtons = () => {
 
   return (
     <div className="fixed bottom-6 right-6 z-[999] flex flex-col gap-4 items-center">
-      
+
       {/* BACK TO TOP BUTTON (Appears above WhatsApp) */}
       <button
         onClick={scrollToTop}
@@ -40,13 +40,13 @@ const FloatingActionButtons = () => {
         className="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-110 group relative"
       >
         <MessageCircle className="w-7 h-7 text-white" />
-        
+
         {/* Tooltip for WhatsApp */}
         <span className="absolute right-16 bg-white text-slate-900 text-xs font-bold px-3 py-1 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-slate-900">
           Chat with us
         </span>
       </a>
-      
+
     </div>
   );
 };

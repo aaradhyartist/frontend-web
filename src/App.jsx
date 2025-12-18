@@ -81,14 +81,9 @@ function App() {
 
           <Route path="contact" element={<ContactUs />} />
 
-          <Route path="/" element={<MainLayout />}>
+          {/* <Route path="/" element={<MainLayout />}>
 
-
-            <Route path="whatsapp" element={<WhatsAppContact />} />
-
-            {/* <Route path="projects" element={<Projects />} /> */}
-            {/* <Route path="projects/create" element={<CreateProject />} /> */}
-          </Route>
+          </Route> */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
 
