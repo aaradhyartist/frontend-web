@@ -17,7 +17,6 @@ import TechStack from "../components/Home/TechStack";
 import ProcessSection from "../components/Home/ProcessSection";
 
 import FinalCTA from "../components/Home/FinalCTA";
-import FloatingActionButtons from "../components/Home/FloatingActionButtons";
 
 
 const Home = () => {
@@ -34,7 +33,6 @@ const Home = () => {
           <TechStack />
           <ProcessSection/>
           <FinalCTA/>
-         <FloatingActionButtons/>
         </main>
         
     </>

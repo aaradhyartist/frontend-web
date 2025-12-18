@@ -37,6 +37,7 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex items-center gap-2">
             <div className="w-10 h-10 bg-[#31b8c6] rounded-xl flex items-center justify-center text-white shadow-lg shadow-[#31b8c6]/20">
               <Cpu size={24} />
+              {/* <img src="./assets/logoicon.png" alt="" className='h-50 w-100' /> */}
             </div>
             <span className="text-2xl font-black text-slate-900 tracking-tighter">
               CORE<span className="text-[#31b8c6]">.</span>
@@ -85,7 +86,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link?.href}
-                className="px-4 py-3 text-lg font-bold text-slate-700 hover:bg-slate-50 hover:text-[#31b8c6] rounded-xl transition-all"
+                className="px-4 py-3 text-lg font-bold text-slate-700 hover:bg-slate-50 hover:text-[#31b8c6] rounded-xl transition-all-"
               >
                 {link.name}
               </Link>

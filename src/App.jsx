@@ -21,6 +21,7 @@ import WhatsAppContact from "./pages/Whatsapp";
 import Navbar from "./components/Home/Navbar";
 import Footer from "./components/Home/Footer";
 import Service from "./pages/Service";
+import FloatingActionButtons from "./components/Home/FloatingActionButtons";
 
 function App() {
   const token = useSelector((state) => state.auth.accessToken); // read token from Redux
@@ -86,7 +87,7 @@ function App() {
           </Route> */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-
+    <FloatingActionButtons/>  
         <Footer />
       </div>
     </>
