@@ -6,9 +6,6 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-
-import MainLayout from "./layouts/MainLayout";
-
 import { useDispatch, useSelector } from "react-redux";
 
 import { fetchUserProfile } from "./services/authService";
@@ -16,12 +13,12 @@ import { setUser } from "./store/authSlice";
 import { useEffect } from "react";
 
 import ContactUs from "./pages/Contact";
-import WhatsAppContact from "./pages/Whatsapp";
 
 import Navbar from "./components/Home/Navbar";
 import Footer from "./components/Home/Footer";
 import Service from "./pages/Service";
 import FloatingActionButtons from "./components/Home/FloatingActionButtons";
+import {  Toaster } from "react-hot-toast";
 
 function App() {
   const token = useSelector((state) => state.auth.accessToken); // read token from Redux
@@ -71,14 +68,12 @@ function App() {
 
     <>
       <div className="relative">
+        <Toaster/>
         <Navbar />
-
         <Routes>
-
-
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-           <Route path="service" element={<Service />} />
+          <Route path="service" element={<Service />} />
 
           <Route path="contact" element={<ContactUs />} />
 
@@ -87,7 +82,7 @@ function App() {
           </Route> */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-    <FloatingActionButtons/>  
+        <FloatingActionButtons />
         <Footer />
       </div>
     </>

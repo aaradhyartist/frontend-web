@@ -1,7 +1,82 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, MessageSquare, ShieldCheck, Clock, ArrowRight, CheckCircle2, Globe, Sparkles, ChevronDown } from 'lucide-react';
+import toast from 'react-hot-toast';
+import api from '../api';
 
 const ContactSection = () => {
+  const [contactForm, setContactForm] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+
+  })
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    // ===== Mobile Validation =====
+    if (name === "mobile") {
+      const numericValue = value.replace(/\D/g, "");
+
+      // Max 10 digits
+      if (numericValue.length > 13) return;
+
+      setContactForm((prev) => ({
+        ...prev,
+        mobile: numericValue,
+      }));
+
+      if (numericValue.length !== 13) {
+        return
+      }
+      return;
+    }
+
+    // ===== Email Validation =====
+    if (name === "email") {
+      setContactForm((prev) => ({
+        ...prev,
+        email: value,
+      }));
+
+      const emailRegex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(value)) {
+        setErrors((prev) => ({
+          ...prev,
+          email: "Enter a valid email address",
+        }));
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          email: "",
+        }));
+      }
+      return;
+    }
+
+    // ===== Default handler =====
+    setContactForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault()
+      const response = await api.post("/contact", contactForm);
+      if (response) {
+        toast.success("Inquiry submited")
+      }
+    } catch (error) {
+      toast.error("Faild to Submit Inquiry")
+    }
+  }
+
   return (
     <div className="w-full mt-10 bg-white pt-24 py-24 px-0 sm:px-6 md:px-12 lg-px-24 pb-20">
       <div className="w-full px-6 lg:px-32">
@@ -57,63 +132,76 @@ const ContactSection = () => {
 
 
           <div className="bg-white border border-slate-300 p-8 lg:p-16 rounded-[2rem] shadow-2xl shadow-slate-200/50">
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6" onSubmit={handleSubmit}>
 
               {/* Personal Info Group */}
               <div className="space-y-5">
                 <div className="space-y-1.5">
                   <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 ml-1">Your Full Name</label>
                   <input
+                    onChange={handleChange}
+                    value={contactForm?.name}
+                    name='name'
                     type="text"
-                    placeholder="e.g. John Doe"
+                    placeholder="e.g. your name"
                     className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3.5 text-slate-700 focus:border-[#31b8c6] focus:ring-4 focus:ring-[#31b8c6]/5 transition-all outline-none placeholder:text-slate-300 font-normal"
                   />
                 </div>
+
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 ml-1">Work Email</label>
+                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 ml-1">Email</label>
                   <input
-                    type="email"
+                    onChange={handleChange}
+                    value={contactForm.email}
+                    name='email'
+                    type="text"
                     placeholder="email@company.com"
                     className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3.5 text-slate-700 focus:border-[#31b8c6] focus:ring-4 focus:ring-[#31b8c6]/5 transition-all outline-none placeholder:text-slate-300 font-normal"
                   />
                 </div>
+
+
+
               </div>
 
               {/* Project Selection Group */}
               <div className="space-y-5">
+
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 ml-1">Primary Service</label>
-                  <div className="relative">
-                    <select className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3.5 text-slate-700 focus:border-[#31b8c6] focus:ring-4 focus:ring-[#31b8c6]/5 transition-all outline-none appearance-none cursor-pointer font-normal pr-12">
-                      <option>SaaS Product Development</option>
-                      <option>Enterprise Cloud Integration</option>
-                      <option>Mobile App Ecosystem</option>
-                      <option>Legacy Modernization</option>
-                    </select>
-                    <ChevronDown size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
-                  </div>
+                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 ml-1">Subject</label>
+                  <input
+                    onChange={handleChange}
+                    type="text"
+                    value={contactForm?.subject || ""}
+                    name='subject'
+                    placeholder="eg: Service descussion "
+                    className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3.5 text-slate-700 focus:border-[#31b8c6] focus:ring-4 focus:ring-[#31b8c6]/5 transition-all outline-none placeholder:text-slate-300 font-normal"
+                  />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 ml-1">Expected Timeline</label>
-                  <div className="relative">
-                    <select className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3.5 text-slate-700 focus:border-[#31b8c6] focus:ring-4 focus:ring-[#31b8c6]/5 transition-all outline-none appearance-none cursor-pointer font-normal pr-12">
-                      <option>Less than 3 months</option>
-                      <option>3 to 6 months</option>
-                      <option>6+ months</option>
-                      <option>Ongoing Support</option>
-                    </select>
-                    <ChevronDown size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
-                  </div>
+                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 ml-1">Mobile</label>
+                  <input
+                    onChange={handleChange}
+                    value={contactForm?.mobile || ""}
+                    type="text"
+                    name='mobile'
+                    placeholder="eg: 9999999999"
+                    className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3.5 text-slate-700 focus:border-[#31b8c6] focus:ring-4 focus:ring-[#31b8c6]/5 transition-all outline-none placeholder:text-slate-300 font-normal"
+                  />
                 </div>
+
               </div>
 
               {/* Message Block (Full Width) */}
               <div className="md:col-span-2 space-y-1.5">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 ml-1">Project Specifics</label>
+                <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 ml-1">Message</label>
                 <textarea
                   rows="4"
-                  placeholder="Tell us about the current technical stack and your scaling goals..."
+                  value={contactForm?.message || ''}
+                  onChange={handleChange}
+                  name='message'
+                  placeholder="Type your message here.."
                   className="w-full bg-white border border-slate-200 rounded-xl px-5 py-4 text-slate-700 focus:border-[#31b8c6] focus:ring-4 focus:ring-[#31b8c6]/5 transition-all outline-none placeholder:text-slate-300 font-normal resize-none"
                 ></textarea>
               </div>
