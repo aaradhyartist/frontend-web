@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Mail, MessageSquare, ShieldCheck, Clock, ArrowRight, CheckCircle2, Globe, Sparkles, ChevronDown } from 'lucide-react';
+import {Loader2, Mail, MessageSquare, ShieldCheck, Clock, ArrowRight, CheckCircle2, Globe, Sparkles, ChevronDown } from 'lucide-react';
+
 import toast from 'react-hot-toast';
 import api from '../api';
 
 const ContactSection = () => {
+
+  const [isLoading, setIsLoading] = useState(false)
   const [contactForm, setContactForm] = useState({
     name: "",
     email: "",
@@ -34,29 +37,7 @@ const ContactSection = () => {
       return;
     }
 
-    // ===== Email Validation =====
-    if (name === "email") {
-      setContactForm((prev) => ({
-        ...prev,
-        email: value,
-      }));
 
-      const emailRegex =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!emailRegex.test(value)) {
-        setErrors((prev) => ({
-          ...prev,
-          email: "Enter a valid email address",
-        }));
-      } else {
-        setErrors((prev) => ({
-          ...prev,
-          email: "",
-        }));
-      }
-      return;
-    }
 
     // ===== Default handler =====
     setContactForm((prev) => ({
@@ -68,12 +49,17 @@ const ContactSection = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault()
+      setIsLoading(true)
       const response = await api.post("/contact", contactForm);
       if (response) {
         toast.success("Inquiry submited")
       }
     } catch (error) {
-      toast.error("Faild to Submit Inquiry")
+      console.log("====Error",error);
+      
+      toast.error(error?.message || "Faild to Submit Inquiry")
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -207,17 +193,31 @@ const ContactSection = () => {
               </div>
 
               {/* Action Area */}
-              <div className="md:col-span-2 ptW-6 flex flex-col items-center gap-6">
-                <button className="px-10 py-4 bg-[#31b8c6] text-white rounded-xl font-bold uppercase text-xs tracking-widest flex items-center justify-center gap-3 hover:bg-slate-900 hover:shadow-2xl hover:cursor-pointer hover:shadow-[#31b8c6]/20 transition-all group w-full md:w-auto">
-                  Submit Request <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform" />
-                </button>
+              <div className="md:col-span-2 pt-6 flex flex-col items-center gap-6">
+  <button
+    onClick={handleSubmit}
+    disabled={isLoading}
+    className={`px-10 py-4 bg-[#31b8c6] text-white rounded-xl font-bold uppercase text-xs tracking-widest flex items-center justify-center gap-3 transition-all group w-full md:w-auto 
+      ${isLoading ? "opacity-80 cursor-not-allowed" : "hover:bg-slate-900 hover:shadow-2xl hover:cursor-pointer hover:shadow-[#31b8c6]/20"}`}
+  >
+    {isLoading ? (
+      <>
+        <Loader2 size={16} className="animate-spin" />
+        Sending...
+      </>
+    ) : (
+      <>
+        Submit Request 
+        <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform" />
+      </>
+    )}
+  </button>
 
-                <div className="flex items-center gap-2 text-slate-400">
-                  <Globe size={12} />
-                  <p className="text-[10px] font-bold uppercase tracking-widest">Global Ops • 24/7 Response</p>
-                </div>
-              </div>
-
+  <div className="flex items-center gap-2 text-slate-400">
+    <Globe size={12} />
+    <p className="text-[10px] font-bold uppercase tracking-widest">Global Ops • 24/7 Response</p>
+  </div>
+</div>
             </form>
           </div>
         </div>
