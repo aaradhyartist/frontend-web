@@ -50,6 +50,8 @@ const ContactSection = () => {
     try {
       e.preventDefault()
       setIsLoading(true)
+
+      
       const response = await api.post("/contact", contactForm);
       if (response) {
         toast.success("Inquiry submited")

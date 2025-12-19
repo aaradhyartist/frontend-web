@@ -16,7 +16,7 @@ const Footer = () => {
                 SS
               </div>
               <span className="text-2xl font-black tracking-tighter text-white uppercase">
-                Software<span className="text-[#31b8c6]">Solu</span>
+                Aaradhy<span className="text-[#31b8c6]">Artist</span>
               </span>
             </div>
             <p className="text-sm leading-relaxed text-slate-400 font-medium">
@@ -62,15 +62,15 @@ const Footer = () => {
             <ul className="flex flex-col gap-6">
               <li className="flex items-start gap-4">
                 <MapPin size={20} className="text-[#31b8c6] shrink-0" />
-                <span className="text-sm font-medium">123 Tech Avenue, Silicon Valley, CA 94043</span>
+                <span className="text-sm font-medium">Palda Indore, Madhya Pradesh 452001 ,  india</span>
               </li>
               <li className="flex items-center gap-4">
                 <Mail size={20} className="text-[#31b8c6] shrink-0" />
-                <span className="text-sm font-medium">hello@softwaresolu.it</span>
+                <span className="text-sm font-medium">{import.meta.env.VITE_APP_WORK_EMAIL}</span>
               </li>
               <li className="flex items-center gap-4">
                 <Phone size={20} className="text-[#31b8c6] shrink-0" />
-                <span className="text-sm font-medium">+1 (555) 000-1234</span>
+                <span className="text-sm font-medium">+91 { import.meta.env.VITE_APP_MOBILE_NUMBER}</span>
               </li>
             </ul>
           </div>
@@ -79,7 +79,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-xs font-bold uppercase tracking-widest text-slate-500">
-            © {currentYear} Software Solu IT. All Rights Reserved.
+            © {currentYear} { import.meta.env.VITE_APP_NAME}. All Rights Reserved.
           </p>
           <div className="flex gap-8 text-xs font-bold uppercase tracking-widest text-slate-500">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>

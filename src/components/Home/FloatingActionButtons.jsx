@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { MessageCircle, ArrowUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
+import { FaWhatsapp } from "react-icons/fa";
 
 const FloatingActionButtons = () => {
   const [showTopBtn, setShowTopBtn] = useState(false);
@@ -34,18 +35,18 @@ const FloatingActionButtons = () => {
 
       {/* WHATSAPP BUTTON (Always at the bottom) */}
       <a
-        href="https://wa.me/916232389832?text=Hi!%20I%20need%20help"
+        href={`https://wa.me/${import.meta.env.VITE_APP_ADMIN_WHATSAPP_NUMBER}?text=Hello,%20I%E2%80%99m%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20the%20next%20steps.`}
         target="_blank"
         rel="noopener noreferrer"
         className="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-110 group relative"
       >
-        <MessageCircle className="w-7 h-7 text-white" />
+        <FaWhatsapp className="w-7 h-7 text-white" />
 
-        {/* Tooltip for WhatsApp */}
         <span className="absolute right-16 bg-white text-slate-900 text-xs font-bold px-3 py-1 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-slate-900">
           Chat with us
         </span>
       </a>
+
 
     </div>
   );

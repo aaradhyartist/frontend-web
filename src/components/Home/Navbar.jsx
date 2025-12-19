@@ -28,19 +28,19 @@ const Navbar = () => {
         {/* Main Navbar Container */}
         <div className={`
           relative flex items-center justify-between h-20 px-6 transition-all duration-500 
-          ${scrolled 
-            ? 'bg-white/80 backdrop-blur-xl shadow-lg border border-white/40 rounded-2xl' 
+          ${scrolled
+            ? 'bg-white/80 backdrop-blur-xl shadow-lg border border-white/40 rounded-2xl'
             : 'bg-white/40 backdrop-blur-md border border border-gray-200 rounded-[2rem]'}
         `}>
-          
+
           {/* Logo Section */}
           <div className="flex-shrink-0 flex items-center gap-2">
             <div className="w-10 h-10 bg-[#31b8c6] rounded-xl flex items-center justify-center text-white shadow-lg shadow-[#31b8c6]/20">
               <Cpu size={24} />
               {/* <img src="./assets/logoicon.png" alt="" className='h-50 w-100' /> */}
             </div>
-            <span className="text-2xl font-black text-slate-900 tracking-tighter">
-              CORE<span className="text-[#31b8c6]">.</span>
+            <span className="text-2xl font-black text-slate-900 tracking-tighter uppercase">
+              {"Aaradhy" ||import.meta.env.VITE_APP_NAME}<span className="text-[#31b8c6]">Artist</span>
             </span>
           </div>
 
@@ -59,10 +59,10 @@ const Navbar = () => {
 
           {/* Desktop Call to Action */}
           <div className="hidden md:flex items-center gap-4">
-            <button className="text-sm font-bold text-slate-900 px-4">Login</button>
-            <button className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold text-sm flex items-center gap-2 hover:bg-[#31b8c6] transition-all duration-300">
-              Get Started <ArrowRight size={16} />
-            </button>
+            {/* <button className="text-sm font-bold text-slate-900 px-4">Login</button> */}
+            <Link to="/contact" className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold text-sm flex items-center gap-2 hover:bg-[#31b8c6] transition-all duration-300">
+              Contact <ArrowRight size={16} />
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -92,10 +92,10 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="h-[1px] bg-slate-100 my-2"></div>
-            <button className="w-full py-4 text-[#31b8c6] font-bold">Login</button>
-            <button className="w-full py-4 bg-[#31b8c6] text-white rounded-xl font-bold shadow-lg shadow-[#31b8c6]/20">
-              Get Started
-            </button>
+            {/* <button className="w-full py-4 text-[#31b8c6] font-bold">Login</button> */}
+            <Link to={"/contact"} className="w-full py-4 bg-[#31b8c6] text-white rounded-xl font-bold shadow-lg shadow-[#31b8c6]/20">
+              Contact
+            </Link>
           </div>
         </div>
       </div>

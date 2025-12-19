@@ -19,6 +19,7 @@ import Footer from "./components/Home/Footer";
 import Service from "./pages/Service";
 import FloatingActionButtons from "./components/Home/FloatingActionButtons";
 import {  Toaster } from "react-hot-toast";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const token = useSelector((state) => state.auth.accessToken); // read token from Redux
@@ -77,10 +78,8 @@ function App() {
 
           <Route path="contact" element={<ContactUs />} />
 
-          {/* <Route path="/" element={<MainLayout />}>
-
-          </Route> */}
-          <Route path="*" element={<Navigate to="/" />} />
+        
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <FloatingActionButtons />
         <Footer />
