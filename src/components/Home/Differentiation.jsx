@@ -1,24 +1,26 @@
 import React from 'react';
 import { Rocket, Users, ShieldCheck, Zap, Layers, LifeBuoy, ArrowRight, Check } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Differentiation = () => {
-  const secondaryPoints = [
-    {
-      title: "Senior Engineers Only",
-      desc: "Direct access to elite architects, no juniors.",
-      icon: <Users size={20} />
-    },
-    {
-      title: "Transparent Pricing",
-      desc: "Agile-based billing with zero hidden fees.",
-      icon: <ShieldCheck size={20} />
-    },
-    {
-      title: "Post-Launch Support",
-      desc: "24/7 technical guardianship and maintenance.",
-      icon: <LifeBuoy size={20} />
-    }
-  ];
+ const secondaryPoints = [
+  {
+    title: "Experienced Team",
+    desc: "Work with skilled engineers who deliver reliable solutions.",
+    icon: <Users size={20} />
+  },
+  {
+    title: "Transparent Pricing",
+    desc: "Clear, upfront costs with no hidden fees.",
+    icon: <ShieldCheck size={20} />
+  },
+  {
+    title: "Post-Launch Support",
+    desc: "Ongoing help to maintain and improve your software after launch.",
+    icon: <LifeBuoy size={20} />
+  }
+];
+
 
   return (
     <section className="w-full bg-[#31b8c6] py-24 px-0 sm:px-6 md:px-12 lg:px-24 lg:py-32 overflow-hidden relative">
@@ -33,9 +35,9 @@ const Differentiation = () => {
             <div className="h-[2px] w-12 bg-white"></div>
             <span className="text-white text-xs font-black uppercase tracking-[0.4em]">Why We Are Different</span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-black text-white leading-[1.1] tracking-tighter">
-            WE DON'T JUST SHIP CODE. <br />
-            <span className="text-slate-900/40">WE SHIP RESULTS.</span>
+          <h2 className="text-4xl md:text-6xl font-black text-white leading-[1.1] tracking-tighter uppercase">
+           We Build Software That <br />
+            <span className="text-slate-900/40">Actually Works</span>
           </h2>
         </div>
 
@@ -47,14 +49,14 @@ const Differentiation = () => {
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-8 border border-white/10">
                 <Zap size={16} className="text-[#31b8c6]" />
-                <span className="text-[10px] font-black uppercase tracking-widest">Performance First</span>
+                <span className="text-[10px] font-black uppercase tracking-widest">Performance Focus</span>
               </div>
-              <h3 className="text-3xl font-bold mb-6">Scalability-First Architecture</h3>
+              <h3 className="text-3xl font-bold mb-6">Reliable & Scalable Systems</h3>
               <p className="text-slate-400 text-lg leading-relaxed mb-10">
-                While others build for today, we engineer for your 10x future. Our systems handle massive traffic spikes without manual intervention.
+                We build software that grows with your business. From handling more users to heavy workloads, our systems stay fast and stable.
               </p>
               <ul className="space-y-4">
-                {["Cloud-Native Infrastructure", "Auto-healing Systems", "Edge Performance Optimization"].map((text, i) => (
+                {["Stable infrastructure", "Automatic error handling", "Smooth user experience"].map((text, i) => (
                   <li key={i} className="flex items-center gap-3 font-bold text-sm">
                     <div className="w-5 h-5 rounded-full bg-[#31b8c6] flex items-center justify-center">
                       <Check size={12} className="text-white" />
@@ -72,8 +74,8 @@ const Differentiation = () => {
             {/* Speed Card */}
             <div className="bg-white rounded-[2.5rem] p-8 flex items-center justify-between group hover:translate-y-[-5px] transition-transform duration-300 shadow-xl">
               <div className="max-w-[70%]">
-                <h3 className="text-2xl font-black text-slate-900 mb-2">30% Faster</h3>
-                <p className="text-slate-500 text-sm font-medium">Time-to-market using our proprietary core frameworks.</p>
+                <h3 className="text-2xl font-black text-slate-900 mb-2">Faster Launches</h3>
+                <p className="text-slate-500 text-sm font-medium">Get your software live quicker with our proven development approach.</p>
               </div>
               <div className="w-16 h-16 rounded-2xl bg-[#31b8c6]/10 flex items-center justify-center text-[#31b8c6]">
                 <Rocket size={32} />
@@ -100,10 +102,10 @@ const Differentiation = () => {
 
         {/* Final White-Button CTA */}
         <div className="mt-20 flex flex-col md:flex-row items-center justify-center gap-6">
-           <p className="text-white font-bold">Ready to see the difference?</p>
-           <button className="px-10 py-5 bg-white text-[#31b8c6] rounded-2xl font-black uppercase text-xs tracking-[0.2em] shadow-2xl hover:bg-slate-900 hover:text-white transition-all flex items-center gap-3 group">
-              Get a Technical Proposal <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-           </button>
+           <p className="text-white font-bold">Ready to see how we can help?</p>
+           <Link to="/contact" className="px-10 py-5 bg-white text-[#31b8c6] rounded-2xl font-black uppercase text-xs tracking-[0.2em] shadow-2xl hover:bg-slate-900 hover:text-white transition-all flex items-center gap-3 group">
+             Get Your Proposal<ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+           </Link>
         </div>
       </div>
     </section>

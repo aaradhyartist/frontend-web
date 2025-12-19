@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Cpu, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,26 +35,31 @@ const Navbar = () => {
 
           {/* Logo Section */}
           <div className="flex-shrink-0 flex items-center gap-2">
+            <Link to={"/"} className='lex-shrink-0 flex items-center gap-2'>
             <div className="w-10 h-10 bg-[#31b8c6] rounded-xl flex items-center justify-center text-white shadow-lg shadow-[#31b8c6]/20">
               <Cpu size={24} />
-              {/* <img src="./assets/logoicon.png" alt="" className='h-50 w-100' /> */}
             </div>
             <span className="text-2xl font-black text-slate-900 tracking-tighter uppercase">
-              {"Aaradhy" ||import.meta.env.VITE_APP_NAME}<span className="text-[#31b8c6]">Artist</span>
+              {"Aaradhy" || import.meta.env.VITE_APP_NAME}<span className="text-[#31b8c6]">Artist</span>
             </span>
+            </Link>
           </div>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center gap-10 ">
             {navLinks.map((link) => (
-              <Link
-                key={link?.name}
-                to={link?.href}
-                className="text-sm font-bold text-slate-600 hover:text-[#31b8c6] transition-colors uppercase tracking-widest"
+              <NavLink
+                key={link.name}
+                to={link.href}
+                className={({ isActive }) =>
+                  `text-sm font-bold uppercase tracking-widest transition-colors
+      ${isActive ? 'text-[#31b8c6]' : 'text-slate-600 hover:text-[#31b8c6]'}`
+                }
               >
                 {link.name}
-              </Link>
+              </NavLink>
             ))}
+
           </div>
 
           {/* Desktop Call to Action */}
@@ -83,17 +88,24 @@ const Navbar = () => {
         `}>
           <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-4 flex flex-col gap-2">
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.name}
-                to={link?.href}
-                className="px-4 py-3 text-lg font-bold text-slate-700 hover:bg-slate-50 hover:text-[#31b8c6] rounded-xl transition-all-"
+                to={link.href}
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  `px-4 py-3 text-lg font-bold rounded-xl transition-all
+      ${isActive
+                    ? 'text-[#31b8c6] bg-slate-50'
+                    : 'text-slate-700 hover:bg-slate-50 hover:text-[#31b8c6]'}`
+                }
               >
                 {link.name}
-              </Link>
+              </NavLink>
             ))}
+
             <div className="h-[1px] bg-slate-100 my-2"></div>
             {/* <button className="w-full py-4 text-[#31b8c6] font-bold">Login</button> */}
-            <Link to={"/contact"} className="w-full py-4 bg-[#31b8c6] text-white rounded-xl font-bold shadow-lg shadow-[#31b8c6]/20">
+            <Link to={"/contact"} className="w-full px-5 py-4 bg-[#31b8c6] text-white rounded-xl font-bold shadow-lg shadow-[#31b8c6]/20">
               Contact
             </Link>
           </div>

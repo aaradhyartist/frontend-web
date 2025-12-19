@@ -16,21 +16,21 @@ const TrustSection = () => {
           <div className="lg:col-span-7">
             <div className="flex items-center gap-3 mb-6">
               <div className="h-[2px] w-12 bg-[#31b8c6]"></div>
-              <span className="text-[#31b8c6] text-xs font-black uppercase tracking-[0.4em]">Market Leadership</span>
+              <span className="text-[#31b8c6] text-xs font-black uppercase tracking-[0.4em]">Working With Businesses</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 leading-[1] tracking-tighter">
-              TRUSTED BY THE <span className="text-slate-300">WORLD'S BEST</span> <br />
-              ENGINEERING <span className="text-[#31b8c6]">TEAMS.</span>
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 leading-[1] tracking-tighter uppercase">
+              TRUSTED BY<span className="text-slate-300"> Growing</span> <br />
+               <span className="text-[#31b8c6]">Businesses.</span>
             </h2>
           </div>
 
           {/* RIGHT: Badges (Spans 5 columns) */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             {[
-              { icon: <ShieldCheck size={24} />, text: "SOC2 Type II Certified" },
-              { icon: <Lock size={24} />, text: "GDPR Data Protection" },
-              { icon: <CheckCircle size={24} />, text: "ISO 27001 Infrastructure" }
+              { icon: <ShieldCheck size={24} />, text: "Clean Code Practices" },
+              { icon: <Lock size={24} />, text: "Secure Development Standards" },
+              { icon: <CheckCircle size={24} />, text: "Scalable Architecture" }
             ].map((badge, i) => (
               <div 
                 key={i} 

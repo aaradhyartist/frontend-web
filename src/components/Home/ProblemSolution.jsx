@@ -4,24 +4,25 @@ import { Plus, Minus } from 'lucide-react';
 const ProblemAccordion = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
-  const data = [
-    { 
-      q: "Manual processes slowing your business", 
-      a: "We eliminate technical debt by automating data entry and repetitive workflows using custom scripts and seamless API integrations, saving your team hundreds of hours." 
-    },
-    { 
-      q: "Poorly built apps that don't scale", 
-      a: "We refactor legacy codebases and migrate your infrastructure to scalable microservices or serverless architectures that grow alongside your user base." 
-    },
-    { 
-      q: "No proper admin/dashboard", 
-      a: "Our custom-built admin panels provide deep visibility into your operations, featuring real-time analytics, user management, and exportable business intelligence reports." 
-    },
-    { 
-      q: "Security & performance issues", 
-      a: "We implement enterprise-grade security protocols including SSL, encryption-at-rest, and edge-CDN optimization to ensure your platform is both bulletproof and lightning-fast." 
-    }
-  ];
+ const data = [
+  { 
+    q: "Manual work slowing your business",
+    a: "We automate repetitive tasks and data entry so your team can focus on real work instead of wasting hours on manual processes."
+  },
+  { 
+    q: "Apps that break as you grow",
+    a: "We build and improve software that stays fast and stable as your users, data, and features increase."
+  },
+  { 
+    q: "No clear admin or dashboard",
+    a: "We create custom admin panels and dashboards that help you manage users, track activity, and understand your business better."
+  },
+  { 
+    q: "Security and performance problems",
+    a: "We focus on secure development and performance best practices to keep your application safe, reliable, and fast."
+  }
+];
+
 
   return (
     <section className="py-24 bg-gray-900 text-white">
@@ -31,11 +32,11 @@ const ProblemAccordion = () => {
         <div className="flex flex-col mb-16">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-[2px] w-12 bg-[#31b8c6]"></div>
-            <span className="text-[#31b8c6] text-xs font-black uppercase tracking-[0.4em]">Solutions</span>
+            <span className="text-[#31b8c6] text-xs font-black uppercase tracking-[0.4em]">Your Challenges</span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-none">
-            WHAT PROBLEMS DO <br />
-            WE <span className="text-[#31b8c6]">SOLVE?</span>
+          <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-none uppercase">
+           We Help You Solve  <br />
+             <span className="text-[#31b8c6]">Them?</span>
           </h2>
         </div>
         

@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 bg-[#31b8c6] rounded-xl flex items-center justify-center font-black text-slate-900">
-                SS
+               AA
               </div>
               <span className="text-2xl font-black tracking-tighter text-white uppercase">
                 Aaradhy<span className="text-[#31b8c6]">Artist</span>

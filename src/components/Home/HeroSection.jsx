@@ -1,6 +1,7 @@
 import React from "react";
-import { ArrowUpRight, Zap, Shield, Globe, Cpu, Play } from "lucide-react";
+import { ArrowUpRight, Zap, Shield, Globe, Cpu, Play, Database, GitBranch } from "lucide-react";
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 
 const FullScaleHero = () => {
   return (
@@ -21,7 +22,7 @@ const FullScaleHero = () => {
             playsInline
             poster="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920&q=80"
             // className="absolute top-0 left-0 w-full h-full object-cover z-0"
-             className="w-full h-full object-cover"
+            className="w-full h-full object-cover"
           >
             <source
               src="https://www.pexels.com/download/video/7308107/"
@@ -41,31 +42,30 @@ const FullScaleHero = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#31b8c6] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#31b8c6]"></span>
                 </span>
-                Digital Intelligence v4.0
+                Smart Software. Real Results.
               </div>
 
               <h1 className="text-[12vw] lg:text-[8vw] font-black text-slate-900 leading-[0.85] tracking-tighter mb-10">
-                BUILDING <br />
-                <span className="text-[#31b8c6]">BEYOND.</span>
+                GROW YOUR <br />
+                <span className="text-[#31b8c6]">BUSSINESS.</span>
               </h1>
 
               <div className="flex flex-col md:flex-row gap-10 items-start">
                 <p className="text-xl md:text-2xl text-slate-600 max-w-md font-medium leading-snug">
-                  The software architecture powering the next generation of
-                  high-growth tech companies.
+                  We build reliable digital products for growing businesses
                 </p>
 
-                <div className="flex flex-col gap-4">
-                  <button className="h-16 px-10 bg-[#31b8c6] hover:bg-slate-900 text-white text-xl font-bold rounded-2xl transition-all duration-300 flex items-center gap-4 shadow-2xl shadow-[#31b8c6]/40 group">
+                <div className="flex flex-col gap-4 ">
+                  <Link to="/contact" className="h-16 px-10 bg-[#31b8c6] hover:bg-slate-900 text-white text-xl font-bold rounded-2xl transition-all duration-300 flex items-center gap-4 shadow-2xl shadow-[#31b8c6]/40 group">
                     Start Project{" "}
                     <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </button>
-                  <button className="flex items-center gap-3 text-slate-900 font-bold hover:text-[#31b8c6] transition-colors ml-2">
+                  </Link>
+                  {/* <button className="flex items-center gap-3 text-slate-900 font-bold hover:text-[#31b8c6] transition-colors ml-2">
                     <span className="w-10 h-10 rounded-full border-2 border-slate-200 flex items-center justify-center">
                       <Play size={16} fill="currentColor" />
                     </span>
                     Watch Showreel
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
@@ -76,26 +76,25 @@ const FullScaleHero = () => {
                 {/* Feature Card 1 */}
                 <div className="bg-white/60 backdrop-blur-xl border border-gray-100 p-8 rounded-[2.5rem] shadow-xl shadow-slate-200/50 hover:scale-105 transition-transform duration-500">
                   <div className="w-14 h-14 bg-[#31b8c6] rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-[#31b8c6]/30">
-                    <Cpu size={28} />
+                    <Globe size={28} />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                    Edge Computing
+                    Web Application Development
                   </h3>
                   <p className="text-slate-500 font-medium">
-                    Ultra-low latency infrastructure for real-time data
-                    processing.
+                    Fast, scalable, and secure software solutions built with modern technologies.
                   </p>
                 </div>
 
                 {/* Feature Card 2 - Visual Link */}
                 <div className="bg-slate-900 p-8 rounded-[2.5rem] shadow-2xl group cursor-pointer overflow-hidden relative">
                   <div className="relative z-10">
-                    <Globe className="text-[#31b8c6] mb-6" size={40} />
+                    <GitBranch className="text-[#31b8c6] mb-6" size={40} />
                     <h3 className="text-2xl font-bold text-white mb-2">
-                      Global Scale
+                      Backend & API Systems
                     </h3>
                     <div className="flex items-center gap-2 text-[#31b8c6] font-bold text-sm uppercase tracking-widest">
-                      Explore Nodes <ArrowUpRight size={16} />
+                  <Link to={"/service"} className="flex"> View Services <ArrowUpRight size={16} /></Link>
                     </div>
                   </div>
                   {/* Decorative circle in card */}
