@@ -17,7 +17,7 @@ const Footer = () => {
                 AA
               </div>
               <span className="text-2xl font-black tracking-tighter text-white uppercase">
-                Aaradhy<span className="text-[#31b8c6]">Artist</span>
+                pankaj<span className="text-[#31b8c6]">Artist</span>
               </span>
             </div>
 
