@@ -35,7 +35,7 @@ const FloatingActionButtons = () => {
 
       {/* WHATSAPP BUTTON (Always at the bottom) */}
       <a
-        href={`https://wa.me/${import.meta.env.VITE_APP_ADMIN_WHATSAPP_NUMBER}?text=Hello,%20I%E2%80%99m%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20the%20next%20steps.`}
+        href={`https://wa.me/91${import.meta.env.VITE_APP_ADMIN_WHATSAPP_NUMBER}?text=Hello,%20I%E2%80%99m%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20the%20next%20steps.`}
         target="_blank"
         rel="noopener noreferrer"
         className="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-110 group relative"

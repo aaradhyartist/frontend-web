@@ -10,28 +10,37 @@ const ProfessionalServiceHero = () => {
         <div className="">
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="h-[2px] w-10 bg-[#31b8c6]"></div>
-            <span className="text-[#31b8c6] text-xs font-black uppercase tracking-[0.4em]">Expert IT Partner</span>
+            <span className="text-[#31b8c6] text-xs font-black uppercase tracking-[0.4em]">  Our Services</span>
           </div>
 
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase">
-            Scalable Software  <span className="text-slate-300">Engineering.</span>
+            Software Services<span className="text-slate-300"> Built for Growth.</span>
           </h2>
 
 
-          <p className="text-slate-600 text-xl font-medium leading-relaxed mb-10 max-w-lg">
-            We provide high-density engineering solutions for businesses that
-            require absolute reliability and high-speed delivery.
+          <p className="text-slate-600 text-xl font-medium leading-relaxed mb-10 max-w-lg mt-5">
+            We design, build, and maintain modern web applications
+            that are fast, secure, and easy to scale.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5 mb-12">
-            <button className="px-10 py-5 bg-slate-900 text-white rounded-xl font-bold hover:bg-[#31b8c6] transition-all flex items-center gap-3">
-              Book a Strategy Call <ArrowRight size={18} />
-            </button>
+            <a
+              href={`https://wa.me/91${import.meta.env.VITE_APP_ADMIN_WHATSAPP_NUMBER}?text=Hello,%20I%E2%80%99m%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20the%20next%20steps.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-10 py-5 bg-slate-900 text-white rounded-xl font-bold hover:bg-[#31b8c6] transition-all flex items-center gap-3"
+            >
+              Chat on WhatsApp <ArrowRight size={18} />
+            </a>
+
             <div className="flex items-center gap-3 px-2">
               <CheckCircle2 className="text-[#31b8c6]" size={20} />
-              <span className="text-sm font-bold text-slate-500 uppercase tracking-widest">Founder Led</span>
+              <span className="text-sm font-bold text-slate-500 uppercase tracking-widest">
+                Direct With Developer
+              </span>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -45,10 +54,7 @@ const ProfessionalServiceHero = () => {
             className="w-full h-full object-cover grayscale-[30%]"
           />
 
-          {/* THE GRADIENT MASK: 
-              - Left side is solid bg-slate-50 to hide the image edge
-              - Right side is transparent to show the image
-          */}
+
           <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent"></div>
 
           {/* Subtle Right-side fade (Optional: if you want it to fade out on the far right too) */}
