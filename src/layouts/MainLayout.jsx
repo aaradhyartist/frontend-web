@@ -5,7 +5,7 @@ import { NAV_ITEMS } from "./NavList";
 import { Toaster } from "react-hot-toast";
 import { SidebarGroup } from "./Sidebar";
 
-export default function AdminLayout({children}) {
+export default function AdminLayout({ children }) {
   const [collapsed, setCollapsed] = useState(false);
   const [openGroup, setOpenGroup] = useState(null);
   return (
@@ -67,8 +67,6 @@ export default function AdminLayout({children}) {
           {/* {children} */}
         </div>
       </main>
-
-      <Toaster />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { X } from "lucide-react";
 import { useState, useEffect } from "react";
-
+import toast from 'react-hot-toast';
+import api from "../../api";
 export default function NewsletterModal({ open, onClose }) {
     const [email, setEmail] = useState("");
     const [visible, setVisible] = useState(false);
@@ -16,13 +17,20 @@ export default function NewsletterModal({ open, onClose }) {
 
     if (!open && !visible) return null;
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!email) return alert("Enter a valid email");
-
-        console.log("Subscribed:", email);
-        setEmail("");
-        onClose();
+        try {
+            if (!email) { toast.error("Enter a valid email"); return }
+            const response = await api.post("/newsletter/subscribe", { email })
+            if (response) {
+                toast.success("Email Submited")
+            }
+            setEmail("");
+            onClose();
+        } catch (error) {
+          
+            toast.error("faild to submit")
+        }
     };
 
     return (
@@ -65,7 +73,7 @@ export default function NewsletterModal({ open, onClose }) {
 
                     <button
                         type="submit"
-                        className="w-full px-6 py-4 bg-[#31b8c6] text-white rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-[#279eaa] transition-all"
+                        className="hover:cursor-pointer w-full px-6 py-4 bg-[#31b8c6] text-white rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-[#279eaa] transition-all"
                     >
                         Subscribe
                     </button>
