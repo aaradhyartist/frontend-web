@@ -22,6 +22,7 @@ export default function NewsletterModal({ open, onClose }) {
 
         console.log("Subscribed:", email);
         setEmail("");
+        alert("subscribed")
         onClose();
     };
 

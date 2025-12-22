@@ -1,9 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Facebook, Twitter, Linkedin, Github, Mail, Phone, MapPin } from 'lucide-react';
-import { href, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+const iconMap = {
+  github: <Github size={18} />,
+  linkedin: <Linkedin size={18} />,
+  twitter: <Twitter size={18} />,
+  facebook: <Facebook size={18} />,
+};
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [socialLinks, setSocialLinks] = useState([]);
+
+
+
+
+  useEffect(() => {
+  axios.get("http://localhost:5000/api/sociallink")
+// axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/sociallink`)
+    .then((res) => {
+       console.log("API DATA:", res.data);
+       console.log("BASE URL 👉", import.meta.env.VITE_API_BASE_URL);
+       console.log("ENV 👉", import.meta.env);
+      const data = Array.isArray(res.data)
+        ? res.data
+        : res.data.data || [];
+
+      setSocialLinks(data);
+    })
+    .catch((err) => console.error(err));
+}, []);
+
 
   return (
     <footer className="bg-slate-900 text-slate-300 pt-20 pb-10 border-t border-slate-800">
@@ -26,27 +55,22 @@ const Footer = () => {
               focused on clean architecture, performance, and real business outcomes.
             </p>
 
+            {/* 🔥 DYNAMIC SOCIAL LINKS */}
             <div className="flex gap-4">
-              {[
-                { icon: <Github size={18} />, href: "https://github.com/yourname" },
-                { icon: <Linkedin size={18} />, href: "https://linkedin.com/in/yourname" },
-                { icon: <Twitter size={18} />, href: "https://twitter.com/yourname" },
-                { icon: <Facebook size={18} />, href: 'https://twitter.com/yourname' }
-
-              ].map((item, i) => (
+              {socialLinks.map((item, i) => (
                 <a
                   key={i}
-                  href={item.href}
+                  href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#31b8c6] hover:text-slate-900 transition-all duration-300"
                 >
-                  {item.icon}
+                  {iconMap[item.platform?.toLowerCase()]}
+                  {console.log(item.platform)}
                 </a>
               ))}
             </div>
           </div>
-
 
           {/* Services Column */}
           <div>
@@ -83,12 +107,13 @@ const Footer = () => {
                 { label: "About Us", href: "/about" },
                 { label: "Service", href: "/service" },
                 { label: "Contact", href: "/contact" },
-              ]
-                .map((link) => (
-                  <li key={link.label}>
-                    <Link to={link?.href} className="hover:text-[#31b8c6] transition-colors">{link.label}</Link>
-                  </li>
-                ))}
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link to={link.href} className="hover:text-[#31b8c6] transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -98,15 +123,21 @@ const Footer = () => {
             <ul className="flex flex-col gap-6">
               <li className="flex items-start gap-4">
                 <MapPin size={20} className="text-[#31b8c6] shrink-0" />
-                <span className="text-sm font-medium">Palda Indore, Madhya Pradesh 452001 ,  india</span>
+                <span className="text-sm font-medium">
+                  Palda Indore, Madhya Pradesh 452001 , india
+                </span>
               </li>
               <li className="flex items-center gap-4">
                 <Mail size={20} className="text-[#31b8c6] shrink-0" />
-                <span className="text-sm font-medium">{import.meta.env.VITE_APP_WORK_EMAIL}</span>
+                <span className="text-sm font-medium">
+                  {import.meta.env.VITE_APP_WORK_EMAIL}
+                </span>
               </li>
               <li className="flex items-center gap-4">
                 <Phone size={20} className="text-[#31b8c6] shrink-0" />
-                <span className="text-sm font-medium">+91 {import.meta.env.VITE_APP_MOBILE_NUMBER}</span>
+                <span className="text-sm font-medium">
+                  +91 {import.meta.env.VITE_APP_MOBILE_NUMBER}
+                </span>
               </li>
             </ul>
           </div>
@@ -121,7 +152,7 @@ const Footer = () => {
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-white transition-colors">Cookies</a>
-             <a href="#" className="hover:text-white transition-colors">pankaj</a>
+            <a href="#" className="hover:text-white transition-colors">pankaj</a>
           </div>
         </div>
       </div>
