@@ -6,66 +6,51 @@ import { Link } from "react-router-dom";
 const FullScaleHero = () => {
   return (
     <>
-      <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-white">
+      <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-slate-900">
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0">
-          {/* <img
-            src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80"
-            alt="Modern bright office"
+          <img
+            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=80"
+            alt="Developer workspace with code on screen"
             className="w-full h-full object-cover"
-          /> */}
-
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920&q=80"
-            // className="absolute top-0 left-0 w-full h-full object-cover z-0"
-            className="w-full h-full object-cover"
-          >
-            <source
-              src="https://www.pexels.com/download/video/7308107/"
-              type="video/mp4"
-            />
-          </video>
-          {/* Light Gradient Overlay: White on left, transparent on right */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20"></div>
+            loading="eager"
+          />
+          {/* Dark gradient overlay: solid on the left for text contrast, fading right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/40"></div>
         </div>
 
         <div className="mt-20 relative z-10 w-full px-6 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
             {/* LEFT: Massive Text Content */}
             <div className="lg:col-span-8 lg:p-18">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#31b8c6]/10 border border-[#31b8c6]/20 text-[#31b8c6] text-xs font-bold tracking-[0.2em] uppercase mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#DC2626]/10 border border-[#DC2626]/20 text-[#DC2626] text-xs font-bold tracking-[0.2em] uppercase mb-8">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#31b8c6] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#31b8c6]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#DC2626] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#DC2626]"></span>
                 </span>
-                Smart Software. Real Results.
+                Automation · MERN · .NET
               </div>
 
-              <h1 className="text-[12vw] lg:text-[8vw] font-black text-slate-900 leading-[0.85] tracking-tighter mb-10">
-                GROW YOUR <br />
-                <span className="text-[#31b8c6]">BUSSINESS.</span>
+              <h1 className="font-display text-[12vw] lg:text-[7.5vw] font-bold text-white leading-[0.9] tracking-tighter mb-8">
+                BUILD. AUTOMATE. <br />
+                <span className="text-[#DC2626]">SCALE.</span>
               </h1>
 
-              <div className="flex flex-col md:flex-row gap-10 items-start">
-                <p className="text-xl md:text-2xl text-slate-600 max-w-md font-medium leading-snug">
-                  We build reliable digital products for growing businesses
+              <div className="max-w-xl">
+                <p className="text-lg md:text-xl text-slate-300 font-normal leading-relaxed mb-10">
+                  A software studio crafting <span className="text-white font-semibold">MERN-stack</span> web apps,
+                  reliable <span className="text-white font-semibold">.NET</span> systems, and
+                  <span className="text-white font-semibold"> automation</span> that saves your team hours every week.
                 </p>
 
-                <div className="flex flex-col gap-4 ">
-                  <Link to="/contact" className="h-16 px-10 bg-[#31b8c6] hover:bg-slate-900 text-white text-xl font-bold rounded-2xl transition-all duration-300 flex items-center gap-4 shadow-2xl shadow-[#31b8c6]/40 group">
-                    Start Project{" "}
-                    <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link to="/contact" className="h-14 px-8 bg-[#DC2626] hover:bg-[#b91c1c] text-white text-base font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#DC2626]/20 group">
+                    Start a Project
+                    <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </Link>
-                  {/* <button className="flex items-center gap-3 text-slate-900 font-bold hover:text-[#31b8c6] transition-colors ml-2">
-                    <span className="w-10 h-10 rounded-full border-2 border-slate-200 flex items-center justify-center">
-                      <Play size={16} fill="currentColor" />
-                    </span>
-                    Watch Showreel
-                  </button> */}
+                  <Link to="/service" className="h-14 px-8 border border-white/20 text-white text-base font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 hover:border-[#DC2626] hover:text-[#DC2626]">
+                    See Our Work
+                  </Link>
                 </div>
               </div>
             </div>
@@ -74,54 +59,54 @@ const FullScaleHero = () => {
             <div className="lg:col-span-4 relative mt-16 lg:mt-0">
               <div className="grid grid-cols-1 gap-6">
                 {/* Feature Card 1 */}
-                <div className="bg-white/60 backdrop-blur-xl border border-gray-100 p-8 rounded-[2.5rem] shadow-xl shadow-slate-200/50 hover:scale-105 transition-transform duration-500">
-                  <div className="w-14 h-14 bg-[#31b8c6] rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-[#31b8c6]/30">
-                    <Globe size={28} />
+                <div className="bg-slate-900/60 backdrop-blur-xl border border-white/10 p-8 rounded-[2.5rem] shadow-2xl shadow-black/30 hover:border-[#DC2626]/40 hover:scale-[1.02] transition-all duration-500">
+                  <div className="w-14 h-14 bg-[#DC2626] rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-[#DC2626]/30">
+                    <Database size={28} />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                    Web Application Development
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    MERN Stack Development
                   </h3>
-                  <p className="text-slate-500 font-medium">
-                    Fast, scalable, and secure software solutions built with modern technologies.
+                  <p className="text-slate-400 font-medium">
+                    React, Node, Express & MongoDB — fast, scalable web apps built end-to-end.
                   </p>
                 </div>
 
                 {/* Feature Card 2 - Visual Link */}
-                <div className="bg-slate-900 p-8 rounded-[2.5rem] shadow-2xl group cursor-pointer overflow-hidden relative">
+                <div className="bg-white/5 border border-white/10 p-8 rounded-[2.5rem] shadow-2xl group cursor-pointer overflow-hidden relative">
                   <div className="relative z-10">
-                    <GitBranch className="text-[#31b8c6] mb-6" size={40} />
+                    <Cpu className="text-[#DC2626] mb-6" size={40} />
                     <h3 className="text-2xl font-bold text-white mb-2">
-                      Backend & API Systems
+                      Automation & .NET
                     </h3>
-                    <div className="flex items-center gap-2 text-[#31b8c6] font-bold text-sm uppercase tracking-widest">
+                    <div className="flex items-center gap-2 text-[#DC2626] font-bold text-sm uppercase tracking-widest">
                   <Link to={"/service"} className="flex"> View Services <ArrowUpRight size={16} /></Link>
                     </div>
                   </div>
                   {/* Decorative circle in card */}
-                  <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[#31b8c6]/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+                  <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[#DC2626]/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Massive Footer Label (fills bottom empty space) */}
-          <div className="mt-24 pt-8 border-t border-slate-200 flex flex-wrap justify-between items-end gap-8">
+          <div className="mt-24 pt-8 border-t border-white/10 flex flex-wrap justify-between items-end gap-8">
             <div className="flex gap-16">
               <div>
                 <p className="text-xs font-black text-slate-400 uppercase tracking-[0.3em] mb-2">
-                  Protocol
+                  Stack
                 </p>
-                <p className="text-xl font-bold text-slate-900">End-to-End</p>
+                <p className="text-xl font-bold text-white">MERN · .NET</p>
               </div>
               <div>
                 <p className="text-xs font-black text-slate-400 uppercase tracking-[0.3em] mb-2">
-                  Availability
+                  Approach
                 </p>
-                <p className="text-xl font-bold text-slate-900">99.99% SLI</p>
+                <p className="text-xl font-bold text-white">Automation-first</p>
               </div>
             </div>
-            <div className="text-slate-300 font-black text-6xl hidden xl:block select-none">
-              2025 // EDITION
+            <div className="text-slate-700 font-black text-6xl hidden xl:block select-none">
+              EST. 2025
             </div>
           </div>
         </div>
@@ -131,8 +116,8 @@ const FullScaleHero = () => {
           <span className="text-[10px] font-black tracking-[0.3em] text-slate-400 uppercase">
             Scroll
           </span>
-          <div className="w-[2px] h-12 bg-gradient-to-b from-[#31b8c6] to-transparent rounded-full relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1/2 bg-white animate-scroll-move"></div>
+          <div className="w-[2px] h-12 bg-gradient-to-b from-[#DC2626] to-transparent rounded-full relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1/2 bg-slate-900 animate-scroll-move"></div>
           </div>
         </div>
 

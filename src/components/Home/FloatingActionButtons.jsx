@@ -24,10 +24,10 @@ const FloatingActionButtons = () => {
       <button
         onClick={scrollToTop}
         className={`hover:cursor-pointer
-          w-12 h-12 bg-slate-900 text-[#31b8c6] rounded-xl  border border-[#31b8c6]  
+          w-12 h-12 bg-slate-900 text-[#DC2626] rounded-xl  border border-[#DC2626]  
           shadow-xl flex items-center justify-center transition-all duration-500
           ${showTopBtn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}
-          hover:bg-[#31b8c6] hover:text-white
+          hover:bg-[#DC2626] hover:text-white
         `}
       >
         <ArrowUp size={24} />
@@ -42,7 +42,7 @@ const FloatingActionButtons = () => {
       >
         <FaWhatsapp className="w-7 h-7 text-white" />
 
-        <span className="absolute right-16 bg-white text-slate-900 text-xs font-bold px-3 py-1 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-slate-900">
+        <span className="absolute right-16 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-slate-900">
           Chat with us
         </span>
       </a>

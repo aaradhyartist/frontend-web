@@ -1,92 +1,42 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
-import { useDispatch, useSelector } from "react-redux";
-
-import { fetchUserProfile } from "./services/authService";
-import { setUser } from "./store/authSlice";
-import { useEffect } from "react";
-
 import ContactUs from "./pages/Contact";
+import Service from "./pages/Service";
+import Solutions from "./pages/Solutions";
+import NotFound from "./pages/NotFound";
 
 import Navbar from "./components/Home/Navbar";
 import Footer from "./components/Home/Footer";
-import Service from "./pages/Service";
 import FloatingActionButtons from "./components/Home/FloatingActionButtons";
-import {  Toaster } from "react-hot-toast";
-import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
-  const token = useSelector((state) => state.auth.accessToken); // read token from Redux
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      if (token) {
-        try {
-          const { data } = await fetchUserProfile();
-
-          dispatch(
-            setUser({
-              user: data,
-              accessToken: token,
-              refreshToken:
-                localStorage.getItem(
-                  `${import.meta.env.VITE_APP_TOKEN_PREFICS}_refreshToken`
-                ) || null,
-            })
-          );
-        } catch (error) {
-          console.log("Error fetching user:", error);
-        }
-      }
-    };
-
-    fetchUser();
-  }, [dispatch]);
-
-  // if (token) {
-  //   return (
-  //     <GoogleOAuthProvider clientId={import.meta.env.VITE_APP_GOOGLE_CLIENT_ID}>
-  //       <Router>
-  //         <Routes>
-  //           <Route path="/login" element={<Login />} />
-  //           <Route path="/register" element={<SignUp />} />
-  //           <Route path="/api-tester" element={<ApiTester />} />
-  //           <Route path="*" element={<Navigate to="/login" />} />
-  //         </Routes>
-  //       </Router>
-  //     </GoogleOAuthProvider>
-  //   );
-  // }
+  const location = useLocation();
 
   return (
+    <div className="relative">
+      <Toaster />
+      <ScrollToTop />
+      <Navbar />
 
-    <>
-      <div className="relative">
-        <Toaster/>
-        <Navbar />
-        <Routes>
+      <div key={location.pathname} className="animate-page">
+        <Routes location={location}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="service" element={<Service />} />
-
+          <Route path="solutions" element={<Solutions />} />
           <Route path="contact" element={<ContactUs />} />
-
-        
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <FloatingActionButtons />
-        <Footer />
       </div>
-    </>
-  );
 
+      <FloatingActionButtons />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;

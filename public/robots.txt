@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Update the domain below to your live URL once deployed
+Sitemap: https://aaradhyartist.com/sitemap.xml

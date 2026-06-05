@@ -2,11 +2,11 @@ import React from 'react';
 import { ShieldCheck, Lock, CheckCircle } from 'lucide-react';
 
 const TrustSection = () => {
-  const logos = ["TECHFLOW", "QUANTUM", "NEXUS", "VELOCITY", "APEX", "SYNERGY", "PRISM", "ORBIT", "FLUX", "MATRIX"];
+  const logos = ["AUTOMATION", "MERN APPS", ".NET SYSTEMS", "DASHBOARDS", "REST APIS", "SAAS PLATFORMS", "ADMIN PANELS", "INTEGRATIONS"];
   const repeatedLogos = [...logos, ...logos, ...logos];
 
   return (
-    <section className="w-full bg-white py-24 px-0 sm:px-6 md:px-12 lg:px-24 border-b border-slate-100 overflow-hidden">
+    <section className="w-full bg-slate-900 py-24 px-0 sm:px-6 md:px-12 lg:px-24 border-b border-white/10 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
         
         {/* Main Grid Container */}
@@ -15,13 +15,13 @@ const TrustSection = () => {
           {/* LEFT: Heading Content (Spans 7 columns) */}
           <div className="lg:col-span-7">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-[2px] w-12 bg-[#31b8c6]"></div>
-              <span className="text-[#31b8c6] text-xs font-black uppercase tracking-[0.4em]">Working With Businesses</span>
+              <div className="h-[2px] w-12 bg-[#DC2626]"></div>
+              <span className="text-[#DC2626] text-xs font-black uppercase tracking-[0.4em]">Why Teams Choose Us</span>
             </div>
-            
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 leading-[1] tracking-tighter uppercase">
-              TRUSTED BY<span className="text-slate-300"> Growing</span> <br />
-               <span className="text-[#31b8c6]">Businesses.</span>
+
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-[1] tracking-tighter uppercase">
+              BUILT FOR<span className="text-slate-600"> Growing</span> <br />
+               <span className="text-[#DC2626]">Businesses.</span>
             </h2>
           </div>
 
@@ -34,10 +34,10 @@ const TrustSection = () => {
             ].map((badge, i) => (
               <div 
                 key={i} 
-                className="flex items-center gap-4 p-5 md:p-6 bg-slate-50 rounded-2xl border border-slate-100 transition-all hover:border-[#31b8c6]/30 group"
+                className="flex items-center gap-4 p-5 md:p-6 bg-white/5 rounded-2xl border border-white/10 transition-all hover:border-[#DC2626]/30 group"
               >
-                <span className="text-[#31b8c6] group-hover:scale-110 transition-transform">{badge.icon}</span>
-                <span className="font-bold text-slate-700 uppercase tracking-tight text-sm md:text-base">
+                <span className="text-[#DC2626] group-hover:scale-110 transition-transform">{badge.icon}</span>
+                <span className="font-bold text-slate-200 uppercase tracking-tight text-sm md:text-base">
                   {badge.text}
                 </span>
               </div>
@@ -46,11 +46,11 @@ const TrustSection = () => {
         </div>
 
         {/* Marquee - Full Width Below */}
-        <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] pt-10 border-t border-slate-50">
+        <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] pt-10 border-t border-white/10">
           <div className="flex whitespace-nowrap animate-marquee-slow opacity-20 hover:opacity-40 transition-opacity">
             {repeatedLogos.map((logo, index) => (
               <div key={index} className="flex items-center px-12">
-                <span className="text-4xl md:text-6xl font-black text-slate-600 uppercase tracking-tighter italic">
+                <span className="text-4xl md:text-6xl font-black text-slate-300 uppercase tracking-tighter italic">
                   {logo}
                 </span>
               </div>

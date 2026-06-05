@@ -9,9 +9,9 @@ const ProblemAccordion = () => {
     q: "Manual work slowing your business",
     a: "We automate repetitive tasks and data entry so your team can focus on real work instead of wasting hours on manual processes."
   },
-  { 
+  {
     q: "Apps that break as you grow",
-    a: "We build and improve software that stays fast and stable as your users, data, and features increase."
+    a: "We build and rebuild software with MERN and .NET that stays fast and stable as your users, data, and features grow."
   },
   { 
     q: "No clear admin or dashboard",
@@ -25,18 +25,18 @@ const ProblemAccordion = () => {
 
 
   return (
-    <section className="py-24 bg-gray-900 text-white">
+    <section className="py-24 bg-slate-900 text-white">
       <div className="container mx-auto px-6 max-w-6xl">
         
         {/* Managed Heading */}
         <div className="flex flex-col mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="h-[2px] w-12 bg-[#31b8c6]"></div>
-            <span className="text-[#31b8c6] text-xs font-black uppercase tracking-[0.4em]">Your Challenges</span>
+            <div className="h-[2px] w-12 bg-[#DC2626]"></div>
+            <span className="text-[#DC2626] text-xs font-black uppercase tracking-[0.4em]">Your Challenges</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-none uppercase">
-           We Help You Solve  <br />
-             <span className="text-[#31b8c6]">Them?</span>
+           Real Problems. <br />
+             <span className="text-[#DC2626]">Real Solutions.</span>
           </h2>
         </div>
         
@@ -52,7 +52,7 @@ const ProblemAccordion = () => {
                 >
                   {/* Grid layout ensures '01' and 'Question' are perfectly spaced */}
                   <div className="grid grid-cols-[40px_1fr] md:grid-cols-[80px_1fr] items-start text-left gap-4">
-                    <span className={`text-sm md:text-base font-mono mt-1.5 transition-colors duration-500 ${isOpen ? 'text-[#31b8c6]' : 'text-gray-600'}`}>
+                    <span className={`text-sm md:text-base font-mono mt-1.5 transition-colors duration-500 ${isOpen ? 'text-[#DC2626]' : 'text-slate-300'}`}>
                       0{i + 1}
                     </span>
                     <h4 className={`text-xl md:text-3xl font-bold transition-all duration-500 tracking-tight pr-4 ${isOpen ? 'text-white' : 'text-gray-400 group-hover:text-gray-200'}`}>
@@ -61,8 +61,8 @@ const ProblemAccordion = () => {
                   </div>
 
                   {/* Icon remains fixed at the top right of the row */}
-                  <div className={`hover:cursor-pointer mt-1 p-2 rounded-full border transition-all duration-500 shrink-0 ${isOpen ? 'border-[#31b8c6] bg-[#31b8c6] rotate-180' : 'border-gray-700 rotate-0'}`}>
-                    {isOpen ? <Minus size={20} className="text-gray-900" /> : <Plus size={20} className="text-gray-400" />}
+                  <div className={`hover:cursor-pointer mt-1 p-2 rounded-full border transition-all duration-500 shrink-0 ${isOpen ? 'border-[#DC2626] bg-[#DC2626] rotate-180' : 'border-gray-700 rotate-0'}`}>
+                    {isOpen ? <Minus size={20} className="text-white" /> : <Plus size={20} className="text-gray-400" />}
                   </div>
                 </button>
 

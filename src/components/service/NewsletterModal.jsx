@@ -42,14 +42,14 @@ export default function NewsletterModal({ open, onClose }) {
             {/* Modal */}
             <div
                 onClick={(e) => e.stopPropagation()}
-                className={`relative w-full max-w-md bg-white rounded-3xl p-8 shadow-2xl text-slate-900
+                className={`relative w-full max-w-md bg-slate-900 rounded-3xl p-8 shadow-2xl text-white
           transform transition-all duration-200
           ${open ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}
             >
                 {/* Close Button */}
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 text-slate-400 hover:text-slate-900"
+                    className="absolute top-4 right-4 text-slate-400 hover:text-white"
                 >
                     <X size={20} />
                 </button>
@@ -58,7 +58,7 @@ export default function NewsletterModal({ open, onClose }) {
                 <h3 className="text-2xl font-black tracking-tight mb-2">
                     Join Our Newsletter
                 </h3>
-                <p className="text-slate-600 text-sm mb-6">
+                <p className="text-slate-300 text-sm mb-6">
                     Get ready-made templates, updates, and insights delivered monthly.
                 </p>
 
@@ -68,12 +68,12 @@ export default function NewsletterModal({ open, onClose }) {
                         placeholder="you@company.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-100 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#31b8c6]"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 focus:outline-none focus:ring-2 focus:ring-[#DC2626]"
                     />
 
                     <button
                         type="submit"
-                        className="hover:cursor-pointer w-full px-6 py-4 bg-[#31b8c6] text-white rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-[#279eaa] transition-all"
+                        className="hover:cursor-pointer w-full px-6 py-4 bg-[#DC2626] text-white rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-[#279eaa] transition-all"
                     >
                         Subscribe
                     </button>
