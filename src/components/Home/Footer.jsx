@@ -14,9 +14,11 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-[#DC2626] rounded-xl flex items-center justify-center font-black text-white">
-                AA
-              </div>
+              <img
+                src="/Logo-A/3.png"
+                alt="AaradhyArtist logo"
+                className="w-14 h-14 rounded-xl object-cover"
+              />
               <span className="text-2xl font-black tracking-tighter text-white uppercase">
                 Aaradhy<span className="text-[#DC2626]">Artist</span>
               </span>
